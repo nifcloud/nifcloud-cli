@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+os.execl(sys.executable, sys.executable, '-m', 'nifcloudcli', *sys.argv[1:])
