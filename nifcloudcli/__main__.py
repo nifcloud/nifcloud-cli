@@ -5,6 +5,8 @@ import awscli.help
 from awscli import (EnvironmentVariables, argparser, clidocs, clidriver,
                     handlers, topictags)
 from awscli.argprocess import ParamShorthandParser
+from awscli.customizations import commands
+from awscli.customizations.configure import configure
 from awscli.customizations.globalargs import register_parse_global_args
 from awscli.customizations.waiters import register_add_waiters
 from awscli.paramfile import register_uri_param_handler
@@ -20,6 +22,10 @@ NIFCLOUD_CLI_COMMAND = 'nifcloud'
 AWS_SERVICE_NAME = 'AWS'
 NIFCLOUD_SERVICE_NAME = 'NIFCLOUD'
 
+argparser.USAGE = argparser.USAGE.replace(
+    "\r" + argparser.AWS_CLI_V2_MESSAGE + "\n\nusage:",
+    ""
+)
 argparser.USAGE = argparser.USAGE.replace(
     AWS_CLI_COMMAND,
     NIFCLOUD_CLI_COMMAND
@@ -122,6 +128,10 @@ OperationHelpCommand = awscli.help.OperationHelpCommand
 OperationHelpCommand.EventHandlerClass = OperationDocumentEventHandler
 
 
+class BasicDocHandler(commands.BasicDocHandler, OperationDocumentEventHandler):
+    pass
+
+
 class ProviderHelpCommand(awscli.help.ProviderHelpCommand):
 
     def __init__(self, session, command_table, arg_table,
@@ -140,6 +150,73 @@ class ProviderHelpCommand(awscli.help.ProviderHelpCommand):
     @property
     def name(self):
         return NIFCLOUD_CLI_COMMAND
+
+
+class ConfigureCommand(configure.ConfigureCommand):
+    DESCRIPTION = (
+        'Configure NIFCLOUD CLI options. If this command is run with no'
+        'arguments you will be prompted for configuration values such as'
+        'your NIFCLOUD Access Key Id and your NIFCLOUD Secret Access Key.'
+        'You can configure a named profile using the ``--profile`` argument.'
+        'If your config file does not exist (the default location is'
+        '``~/.nifcloud/config``), the NIFCLOUD CLI will create it for you. To'
+        'keep an existing value, hit enter when prompted for the value. when'
+        'you are prompted for information, the current value will be displayed'
+        'in ``[brackets]``.  If the config item has no value, it be displayed'
+        'as ``[None]``.  Note that the ``configure`` command only works with'
+        'values from the config file.  It does not use any configuration'
+        'values from environment variables.'
+        ''
+        'Note: the values you provide for the NIFCLOUD Access Key ID and the'
+        'NIFCLOUD Secret Access Key will be written to the shared credentials'
+        'file (``~/.nifcloud/credentials``).'
+    )
+    SYNOPSIS = configure.ConfigureCommand.SYNOPSIS.replace(
+        AWS_CLI_COMMAND,
+        NIFCLOUD_CLI_COMMAND
+    )
+    EXAMPLES = configure.ConfigureCommand.EXAMPLES.replace(
+        AWS_CLI_COMMAND,
+        NIFCLOUD_CLI_COMMAND
+    ).replace(
+        AWS_SERVICE_NAME,
+        NIFCLOUD_SERVICE_NAME
+    )
+    VALUES_TO_PROMPT = [
+        ('nifcloud_access_key_id', "NIFCLOUD Access Key ID"),
+        ('nifcloud_secret_access_key', "NIFCLOUD Secret Access Key"),
+        ('region', "Default region name"),
+        ('output', "Default output format"),
+    ]
+
+    def _write_out_creds_file_values(self, new_values, profile_name):
+        creds_file_values = {}
+        if 'nifcloud_access_key_id' in new_values:
+            creds_file_values['nifcloud_access_key_id'] = new_values.pop(
+                'nifcloud_access_key_id')
+        if 'nifcloud_secret_access_key' in new_values:
+            creds_file_values['nifcloud_secret_access_key'] = new_values.pop(
+                'nifcloud_secret_access_key')
+        if creds_file_values:
+            if profile_name is not None:
+                creds_file_values['__section__'] = profile_name
+            shared_credentials_filename = os.path.expanduser(
+                self._session.get_config_variable('credentials_file'))
+            self._config_writer.update_config(
+                creds_file_values,
+                shared_credentials_filename)
+
+    def create_help_command(self):
+        command_help_table = {}
+        if self.SUBCOMMANDS:
+            command_help_table = self.create_help_command_table()
+        return commands.BasicHelp(
+                self._session,
+                self,
+                command_table=command_help_table,
+                arg_table=self.arg_table,
+                event_handler_class=BasicDocHandler
+        )
 
 
 LOG = clidriver.LOG
@@ -175,7 +252,6 @@ class CLIDriver(clidriver.CLIDriver):
 
 clidriver.CLIDriver = CLIDriver
 
-
 loaders.Loader.BUILTIN_DATA_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'data'
 )
@@ -197,6 +273,10 @@ def awscli_initialize(event_handlers):
     event_handlers.register('process-cli-arg', param_shorthand)
     register_parse_global_args(event_handlers)
     register_add_waiters(event_handlers)
+    event_handlers.register(
+        'building-command-table.main',
+        ConfigureCommand.add_command
+    )
 
 
 handlers.awscli_initialize = awscli_initialize
