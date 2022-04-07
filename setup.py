@@ -32,7 +32,7 @@ setup(
     author='FUJITSU CLOUD TECHNOLOGIES',
     url='https://github.com/nifcloud/nifcloud-cli',
     packages=find_packages(exclude=['tests*']),
-    package_data={'nifcloud': ['data/*.json', 'topics/*.json']},
+    package_data={'nifcloudcli': ['data/*.json', 'topics/*.json']},
     include_package_data=True,
     install_requires=['nifcloud==1.1.0', 'awscli==1.20.43'],
     license='Apache License 2.0',
