@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.1.1](https://github.com/nifcloud/nifcloud-cli/tree/v1.1.1) (2022-04-08)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.1.0...v1.1.1)
+
+**Merged pull requests:**
+
+- fix using setup.py [\#8](https://github.com/nifcloud/nifcloud-cli/pull/8) ([o108minmin](https://github.com/o108minmin))
+
 ## [v1.1.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.1.0) (2022-03-25)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.0.5...v1.1.0)
