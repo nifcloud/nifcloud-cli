@@ -112,6 +112,17 @@
           },
           "isRegionalized" : false,
           "partitionEndpoint" : "aws-global"
+        },
+        "storage": {
+          "defaults": {
+            "signatureVersions": [
+              "s3v4"
+            ]
+          },
+          "endpoints": {
+            "jp-east-1": {},
+            "jp-west-2": {}
+          }
         }
       }
     }

@@ -8,6 +8,7 @@ from awscli.argprocess import ParamShorthandParser
 from awscli.customizations import commands
 from awscli.customizations.configure import configure
 from awscli.customizations.globalargs import register_parse_global_args
+from awscli.customizations.streamingoutputarg import add_streaming_output_arg
 from awscli.customizations.waiters import register_add_waiters
 from awscli.paramfile import register_uri_param_handler
 from awscli.plugin import load_plugins
@@ -272,6 +273,9 @@ def awscli_initialize(event_handlers):
     param_shorthand = ParamShorthandParser()
     event_handlers.register('process-cli-arg', param_shorthand)
     register_parse_global_args(event_handlers)
+    event_handlers.register(
+        'building-argument-table.*', add_streaming_output_arg
+    )
     register_add_waiters(event_handlers)
     event_handlers.register(
         'building-command-table.main',
