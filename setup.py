@@ -34,7 +34,7 @@ setup(
     packages=find_packages(exclude=['tests*']),
     package_data={'nifcloudcli': ['data/*.json', 'topics/*.json']},
     include_package_data=True,
-    install_requires=['nifcloud==1.1.0', 'awscli==1.20.43'],
+    install_requires=['nifcloud==1.2.0', 'awscli==1.20.43'],
     license='Apache License 2.0',
     classifiers=(
         'Development Status :: 5 - Production/Stable',
