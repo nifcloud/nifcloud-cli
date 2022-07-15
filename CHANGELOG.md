@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.2.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.2.0) (2022-07-15)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.1.1...v1.2.0)
+
+**Merged pull requests:**
+
+- Add ObjectStorageService [\#11](https://github.com/nifcloud/nifcloud-cli/pull/11) ([fuku2014](https://github.com/fuku2014))
+- Update sdk\(for UpgradeDBEngineVersion etc.\) [\#10](https://github.com/nifcloud/nifcloud-cli/pull/10) ([fuku2014](https://github.com/fuku2014))
+
 ## [v1.1.1](https://github.com/nifcloud/nifcloud-cli/tree/v1.1.1) (2022-04-08)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.1.0...v1.1.1)
