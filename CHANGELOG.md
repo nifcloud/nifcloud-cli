@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.3.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.3.0) (2022-08-30)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.2.0...v1.3.0)
+
+**Merged pull requests:**
+
+- Update computing model [\#13](https://github.com/nifcloud/nifcloud-cli/pull/13) ([aokumasan](https://github.com/aokumasan))
+- Update model for storage service [\#12](https://github.com/nifcloud/nifcloud-cli/pull/12) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.2.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.2.0) (2022-07-15)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.1.1...v1.2.0)
