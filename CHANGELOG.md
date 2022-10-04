@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.4.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.4.0) (2022-10-04)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.3.0...v1.4.0)
+
+**Merged pull requests:**
+
+- Update Hatoba model [\#14](https://github.com/nifcloud/nifcloud-cli/pull/14) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.3.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.3.0) (2022-08-30)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.2.0...v1.3.0)
