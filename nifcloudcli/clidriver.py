@@ -306,7 +306,3 @@ def _set_user_agent_for_session(session):
     session.user_agent_name = 'nifcloud-cli'
     session.user_agent_version = nifcloud_version
     session.user_agent_extra = 'botocore/%s' % botocore_version
-
-
-if __name__ == '__main__':
-    sys.exit(main())
