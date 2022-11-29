@@ -1,9 +1,31 @@
 #!/usr/bin/env python
 import codecs
-import os.path
+import os
 import re
+import sys
 
-from setuptools import find_packages, setup
+if os.name == "nt" and ("build" in sys.argv or "bdist_msi" in sys.argv):
+    from cx_Freeze import Executable, setup
+    from setuptools import find_packages
+
+    if 'bdist_msi' in sys.argv:
+        sys.argv += ['--add-to-path', 'True', '--skip-build']
+
+    build_exe_options = {
+        "includes": ["awscli", "html.parser"],
+        "packages": ["docutils"],
+        "excludes": ["awscli.examples", "botocore.data"],
+    }
+    cx_freeze_opts = {
+        "add_to_path": True,
+        "skip_build": True,
+        "options": {"build_exe": build_exe_options},
+        "executables": [Executable("bin/nifcloud", icon="assets/icon.ico")],
+    }
+else:
+    from setuptools import find_packages, setup
+    cx_freeze_opts = {}
+
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -47,5 +69,6 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ),
-    scripts=['bin/nifcloud']
+    scripts=['bin/nifcloud'],
+    **cx_freeze_opts,
 )
