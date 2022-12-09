@@ -11,8 +11,26 @@ Universal Command Line Interface for NIFCLOUD Services
 
 ## How to Install
 
+### Using pip
+
 ```
-pip install nifcloud-cli
+$ pip install nifcloud-cli
+$ nifcloud --version
+```
+
+### Using MSI installer (Windows only)
+
+1. Download the MSI installer from [Release](https://github.com/nifcloud/nifcloud-cli/releases).
+1. Run the downloaded MSI installer.
+1. Check the nifcloud-cli from command prompt.
+    ```
+    C:\> nifcloud --version
+    ```
+
+### Using docker
+
+```
+$ docker run -it --rm ghcr.io/nifcloud/nifcloud-cli --version
 ```
 
 ## Usage
