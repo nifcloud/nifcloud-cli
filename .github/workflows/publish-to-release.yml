@@ -1,0 +1,66 @@
+name: Publish to Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build_msi:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        python-version: [3.9]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install pipenv==2021.05.29
+          pipenv install -d --skip-lock --system
+
+      - name: Build exe
+        shell: pwsh
+        run: |
+          python setup.py build
+          mkdir files-to-sign
+          mv build/exe.win-amd64-${{ matrix.python-version }}/nifcloud.exe files-to-sign
+
+      - name: Sign nifcloud.exe
+        uses: skymatic/code-sign-action@v1
+        with:
+          certificate: '${{ secrets.CERTIFICATE }}'
+          password: '${{ secrets.CERTPASS }}'
+          certificatesha1: '${{ secrets.CERTHASH }}'
+          description: 'nifcloud-cli'
+          timestampUrl: 'http://timestamp.digicert.com'
+          folder: 'files-to-sign'
+
+      - name: Create MSI installer
+        shell: pwsh
+        run: |
+          mv files-to-sign/nifcloud.exe build/exe.win-amd64-${{ matrix.python-version }}/
+          python setup.py bdist_msi
+
+      - name: Sign MSI installer
+        uses: skymatic/code-sign-action@v1
+        with:
+          certificate: '${{ secrets.CERTIFICATE }}'
+          password: '${{ secrets.PASSWORD }}'
+          certificatesha1: '${{ secrets.CERTHASH }}'
+          description: 'nifcloud-cli installer'
+          timestampUrl: 'http://timestamp.digicert.com'
+          folder: 'dist'
+
+      - name: Upload to release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/nifcloud-cli-*-win64.msi

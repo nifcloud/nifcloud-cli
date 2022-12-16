@@ -9,6 +9,7 @@ nifcloud-cli = {editable = true,path = "."}
 [dev-packages]
 isort = "*"
 "flake8" = "*"
+cx-freeze = "==6.13.1"
 
 [scripts]
 isort = "isort"
