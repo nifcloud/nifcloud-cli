@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.4.2](https://github.com/nifcloud/nifcloud-cli/tree/v1.4.2) (2023-01-05)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.4.1...v1.4.2)
+
+## [v1.4.1](https://github.com/nifcloud/nifcloud-cli/tree/v1.4.1) (2023-01-05)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.4.0...v1.4.1)
+
+**Merged pull requests:**
+
+- Add more usage contents in README [\#17](https://github.com/nifcloud/nifcloud-cli/pull/17) ([aokumasan](https://github.com/aokumasan))
+- Feature/windows installer [\#16](https://github.com/nifcloud/nifcloud-cli/pull/16) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.4.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.4.0) (2022-10-04)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.3.0...v1.4.0)
