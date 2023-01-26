@@ -24,18 +24,12 @@ AWS_SERVICE_NAME = 'AWS'
 NIFCLOUD_SERVICE_NAME = 'NIFCLOUD'
 
 argparser.USAGE = argparser.USAGE.replace(
-    "\r" + argparser.AWS_CLI_V2_MESSAGE + "\n\nusage:",
-    ""
-)
-argparser.USAGE = argparser.USAGE.replace(
-    AWS_CLI_COMMAND,
-    NIFCLOUD_CLI_COMMAND
-)
+    "\r" + argparser.AWS_CLI_V2_MESSAGE + "\n\nusage:", "")
+argparser.USAGE = argparser.USAGE.replace(AWS_CLI_COMMAND,
+                                          NIFCLOUD_CLI_COMMAND)
 clidriver.USAGE = argparser.USAGE
 
-root_dir = os.path.dirname(
-    os.path.abspath(__file__)
-)
+root_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 class TopicTagsDB(topictags.TopicTagDB):
@@ -43,23 +37,19 @@ class TopicTagsDB(topictags.TopicTagDB):
     TOPIC_DIR = os.path.join(root_dir, 'topics')
     JSON_INDEX = os.path.join(TOPIC_DIR, 'topic-tags.json')
 
-    def __init__(self, tag_dictionary=None, index_file=None,
-                 topic_dir=None):
+    def __init__(self, tag_dictionary=None, index_file=None, topic_dir=None):
         index_file = (TopicTagsDB.JSON_INDEX
                       if index_file is None else index_file)
         topic_dir = TopicTagsDB.TOPIC_DIR if topic_dir is None else topic_dir
-        super(TopicTagsDB, self).__init__(
-            tag_dictionary,
-            index_file,
-            topic_dir
-        )
+        super(TopicTagsDB, self).__init__(tag_dictionary, index_file,
+                                          topic_dir)
 
 
 class TopicListerDocumentEventHandler(clidocs.TopicListerDocumentEventHandler):
 
-    DESCRIPTION = (clidocs.TopicListerDocumentEventHandler.DESCRIPTION
-                   .replace(AWS_SERVICE_NAME, NIFCLOUD_SERVICE_NAME)
-                   .replace(AWS_CLI_COMMAND, NIFCLOUD_CLI_COMMAND))
+    DESCRIPTION = (clidocs.TopicListerDocumentEventHandler.DESCRIPTION.replace(
+        AWS_SERVICE_NAME,
+        NIFCLOUD_SERVICE_NAME).replace(AWS_CLI_COMMAND, NIFCLOUD_CLI_COMMAND))
 
     def __init__(self, *args, **kwargs):
         super(TopicListerDocumentEventHandler, self).__init__(*args, **kwargs)
@@ -69,9 +59,9 @@ class TopicListerDocumentEventHandler(clidocs.TopicListerDocumentEventHandler):
     def doc_title(self, help_command, **kwargs):
         doc = help_command.doc
         doc.style.new_paragraph()
-        doc.style.link_target_definition(
-            refname='cli:aws help %s' % self.help_command.name,
-            link='')
+        doc.style.link_target_definition(refname='cli:nifcloud help %s' %
+                                         self.help_command.name,
+                                         link='')
         doc.style.h1('NIFCLOUD CLI Topic Guide')
 
 
@@ -98,10 +88,9 @@ class OperationDocumentEventHandler(clidocs.OperationDocumentEventHandler):
     def _add_top_level_args_reference(self, help_command):
         help_command.doc.writeln('')
         help_command.doc.write("See ")
-        help_command.doc.style.internal_link(
-            title="'%s help'" % NIFCLOUD_CLI_COMMAND,
-            page='/reference/index'
-        )
+        help_command.doc.style.internal_link(title="'%s help'" %
+                                             NIFCLOUD_CLI_COMMAND,
+                                             page='/reference/index')
         help_command.doc.writeln(' for descriptions of global parameters.')
 
     def _add_webapi_crosslink(self, help_command):
@@ -118,10 +107,9 @@ class OperationDocumentEventHandler(clidocs.OperationDocumentEventHandler):
         doc.write("See also: ")
         link = '%s/%s/%s' % (self.NIFCLOUD_DOC_BASE, service_uid,
                              operation_model.name)
-        doc.style.external_link(
-            title="%s API Documentation" % NIFCLOUD_SERVICE_NAME,
-            link=link
-        )
+        doc.style.external_link(title="%s API Documentation" %
+                                NIFCLOUD_SERVICE_NAME,
+                                link=link)
         doc.writeln('')
 
 
@@ -135,12 +123,11 @@ class BasicDocHandler(commands.BasicDocHandler, OperationDocumentEventHandler):
 
 class ProviderHelpCommand(awscli.help.ProviderHelpCommand):
 
-    def __init__(self, session, command_table, arg_table,
-                 description, synopsis, usage):
-        super(ProviderHelpCommand, self).__init__(
-            session, command_table, arg_table,
-            description, synopsis, usage
-        )
+    def __init__(self, session, command_table, arg_table, description,
+                 synopsis, usage):
+        super(ProviderHelpCommand,
+              self).__init__(session, command_table, arg_table, description,
+                             synopsis, usage)
         self._related_items = ['%s help topics' % NIFCLOUD_CLI_COMMAND]
         self._topic_tag_db = TopicTagsDB()
 
@@ -170,19 +157,12 @@ class ConfigureCommand(configure.ConfigureCommand):
         ''
         'Note: the values you provide for the NIFCLOUD Access Key ID and the'
         'NIFCLOUD Secret Access Key will be written to the shared credentials'
-        'file (``~/.nifcloud/credentials``).'
-    )
+        'file (``~/.nifcloud/credentials``).')
     SYNOPSIS = configure.ConfigureCommand.SYNOPSIS.replace(
-        AWS_CLI_COMMAND,
-        NIFCLOUD_CLI_COMMAND
-    )
+        AWS_CLI_COMMAND, NIFCLOUD_CLI_COMMAND)
     EXAMPLES = configure.ConfigureCommand.EXAMPLES.replace(
-        AWS_CLI_COMMAND,
-        NIFCLOUD_CLI_COMMAND
-    ).replace(
-        AWS_SERVICE_NAME,
-        NIFCLOUD_SERVICE_NAME
-    )
+        AWS_CLI_COMMAND, NIFCLOUD_CLI_COMMAND).replace(AWS_SERVICE_NAME,
+                                                       NIFCLOUD_SERVICE_NAME)
     VALUES_TO_PROMPT = [
         ('nifcloud_access_key_id', "NIFCLOUD Access Key ID"),
         ('nifcloud_secret_access_key', "NIFCLOUD Secret Access Key"),
@@ -203,21 +183,18 @@ class ConfigureCommand(configure.ConfigureCommand):
                 creds_file_values['__section__'] = profile_name
             shared_credentials_filename = os.path.expanduser(
                 self._session.get_config_variable('credentials_file'))
-            self._config_writer.update_config(
-                creds_file_values,
-                shared_credentials_filename)
+            self._config_writer.update_config(creds_file_values,
+                                              shared_credentials_filename)
 
     def create_help_command(self):
         command_help_table = {}
         if self.SUBCOMMANDS:
             command_help_table = self.create_help_command_table()
-        return commands.BasicHelp(
-                self._session,
-                self,
-                command_table=command_help_table,
-                arg_table=self.arg_table,
-                event_handler_class=BasicDocHandler
-        )
+        return commands.BasicHelp(self._session,
+                                  self,
+                                  command_table=command_help_table,
+                                  arg_table=self.arg_table,
+                                  event_handler_class=BasicDocHandler)
 
 
 LOG = clidriver.LOG
@@ -243,19 +220,18 @@ class CLIDriver(clidriver.CLIDriver):
         # Also add a 'help' command.
         command_table['help'] = self.create_help_command()
         cli_data = self._get_cli_data()
-        parser = argparser.MainArgParser(
-            command_table, self.session.user_agent(),
-            cli_data.get('description', None),
-            self._get_argument_table(),
-            prog=NIFCLOUD_CLI_COMMAND)
+        parser = argparser.MainArgParser(command_table,
+                                         self.session.user_agent(),
+                                         cli_data.get('description', None),
+                                         self._get_argument_table(),
+                                         prog=NIFCLOUD_CLI_COMMAND)
         return parser
 
 
 clidriver.CLIDriver = CLIDriver
 
 loaders.Loader.BUILTIN_DATA_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), 'data'
-)
+    os.path.dirname(os.path.abspath(__file__)), 'data')
 
 # Delete awscli data path from botocore's search path
 _cli_data_path = []
@@ -273,14 +249,11 @@ def awscli_initialize(event_handlers):
     param_shorthand = ParamShorthandParser()
     event_handlers.register('process-cli-arg', param_shorthand)
     register_parse_global_args(event_handlers)
-    event_handlers.register(
-        'building-argument-table.*', add_streaming_output_arg
-    )
+    event_handlers.register('building-argument-table.*',
+                            add_streaming_output_arg)
     register_add_waiters(event_handlers)
-    event_handlers.register(
-        'building-command-table.main',
-        ConfigureCommand.add_command
-    )
+    event_handlers.register('building-command-table.main',
+                            ConfigureCommand.add_command)
 
 
 handlers.awscli_initialize = awscli_initialize

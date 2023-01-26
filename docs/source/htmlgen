@@ -1,0 +1,87 @@
+#!/usr/bin/env python
+import os
+
+import nifcloudcli.clidriver
+from awscli.help import PagingHelpRenderer
+
+REF_PATH = 'reference'
+
+
+class FileRenderer(PagingHelpRenderer):
+
+    def __init__(self, file_path):
+        self._file_path = file_path
+
+    def render(self, contents):
+        fp = open(self._file_path, 'wb')
+        fp.write(contents)
+        fp.close()
+
+
+def do_operation(driver, service_path, operation_name, operation_command):
+    file_path = os.path.join(service_path, operation_name + '.rst')
+    help_command = operation_command.create_help_command()
+    if help_command is None:
+        # Do not document anything that does not have a help command.
+        return
+    help_command.doc.target = 'html'
+    help_command.renderer = FileRenderer(file_path)
+    help_command(None, None)
+
+
+def do_service(driver,
+               ref_path,
+               service_name,
+               service_command,
+               is_top_level_service=True):
+    if is_top_level_service:
+        print('...%s' % service_name)
+    service_path = os.path.join(ref_path, service_name)
+    if not os.path.isdir(service_path):
+        os.mkdir(service_path)
+    index_path = os.path.join(service_path, 'index.rst')
+    help_command = service_command.create_help_command()
+    if help_command is None:
+        # Do not document anything that does not have a help command.
+        return
+    help_command.doc.target = 'html'
+    help_command.renderer = FileRenderer(index_path)
+    help_command(None, None)
+    for operation_name in help_command.command_table:
+        if operation_name == 'help':
+            continue
+        operation_command = help_command.command_table[operation_name]
+        subcommand_table = getattr(operation_command, 'subcommand_table', {})
+        # If the operation command has a subcommand table with commands
+        # in it, treat it as a service command as opposed to an operation
+        # command.
+        if (len(subcommand_table) > 0):
+            do_service(driver, service_path, operation_name, operation_command,
+                       False)
+        else:
+            do_operation(driver, service_path, operation_name,
+                         operation_command)
+
+
+def do_provider(driver):
+    help_command = driver.create_help_command()
+    help_command.doc.target = 'html'
+    help_command.renderer = FileRenderer(os.path.join(REF_PATH, 'index.rst'))
+    help_command(None, None)
+
+    services = sorted(help_command.command_table)
+    print('\nWriting service references')
+    for service_name in services:
+        if service_name == 'help':
+            continue
+        service_command = help_command.command_table[service_name]
+        do_service(driver, REF_PATH, service_name, service_command)
+
+
+if __name__ == '__main__':
+    driver = nifcloudcli.clidriver.create_clidriver()
+    if not os.path.isdir(REF_PATH):
+        os.mkdir(REF_PATH)
+    print('Generating ReST documents for all services...')
+    do_provider(driver)
+    print('Done!')
