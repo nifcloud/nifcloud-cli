@@ -1,5 +1,6 @@
 from awscli.customizations import commands
 from awscli.customizations.configure import list
+
 from nifcloudcli.constants import (AWS_CLI_COMMAND, AWS_SERVICE_NAME,
                                    NIFCLOUD_CLI_COMMAND, NIFCLOUD_SERVICE_NAME)
 from nifcloudcli.customizations.commands import BasicDocHandler

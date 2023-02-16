@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 import os
 
-import nifcloudcli.clidriver
 from awscli.help import PagingHelpRenderer
+
+import nifcloudcli.clidriver
 
 REF_PATH = 'reference'
 
