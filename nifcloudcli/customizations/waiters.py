@@ -1,6 +1,8 @@
 from awscli.customizations import waiters
 from awscli.customizations.commands import BasicHelp
 
+from nifcloudcli.customizations.commands import BasicDocHandler
+
 
 def register_add_waiters(cli):
     cli.register('building-command-table', add_waiters)
@@ -43,7 +45,7 @@ class WaitCommand(waiters.WaitCommand):
                          event_handler_class=WaiterCommandDocHandler)
 
 
-class WaiterCommandDocHandler(waiters.WaiterCommandDocHandler):
+class WaiterCommandDocHandler(BasicDocHandler):
 
     def doc_breadcrumbs(self, help_command, **kwargs):
         pass
@@ -52,3 +54,21 @@ class WaiterCommandDocHandler(waiters.WaiterCommandDocHandler):
         doc = help_command.doc
         doc.style.new_paragraph()
         doc.style.h1(help_command.name)
+
+    def doc_synopsis_start(self, help_command, **kwargs):
+        pass
+
+    def doc_synopsis_option(self, arg_name, help_command, **kwargs):
+        pass
+
+    def doc_synopsis_end(self, help_command, **kwargs):
+        pass
+
+    def doc_options_start(self, help_command, **kwargs):
+        pass
+
+    def doc_options_end(self, help_command, **kwargs):
+        pass
+
+    def doc_option(self, arg_name, help_command, **kwargs):
+        pass
