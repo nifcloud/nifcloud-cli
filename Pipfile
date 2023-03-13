@@ -10,8 +10,8 @@ nifcloud-cli = {editable = true, path = "."}
 isort = "*"
 "flake8" = "*"
 cx-freeze = "==6.13.1"
-sphinx = "==5.3.0"
-sphinx-rtd-theme = "*"
+sphinx = {version = "==5.3.0", sys_platform = "!= 'win32'"}
+sphinx-rtd-theme = {version = "*", sys_platform = "!= 'win32'"}
 
 [scripts]
 isort = "isort"
