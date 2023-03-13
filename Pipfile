@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-nifcloud-cli = {editable = true,path = "."}
+nifcloud-cli = {editable = true, path = "."}
 
 [dev-packages]
 isort = "*"
