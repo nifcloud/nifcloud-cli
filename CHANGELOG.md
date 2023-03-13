@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.5.1](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.1) (2023-03-13)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.0...v1.5.1)
+
+**Merged pull requests:**
+
+- Fix/add init py for configure package [\#20](https://github.com/nifcloud/nifcloud-cli/pull/20) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.5.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.0) (2023-03-13)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.4.2...v1.5.0)
