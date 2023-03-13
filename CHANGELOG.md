@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.5.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.0) (2023-03-13)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.4.2...v1.5.0)
+
+**Implemented enhancements:**
+
+- Windows環境でnifcloudコマンドが実行出来ない [\#15](https://github.com/nifcloud/nifcloud-cli/issues/15)
+
+**Merged pull requests:**
+
+- Add Service Activity & Update hatoba [\#19](https://github.com/nifcloud/nifcloud-cli/pull/19) ([fujita-hiroki1115](https://github.com/fujita-hiroki1115))
+- Feature/docs [\#18](https://github.com/nifcloud/nifcloud-cli/pull/18) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.4.2](https://github.com/nifcloud/nifcloud-cli/tree/v1.4.2) (2023-01-05)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.4.1...v1.4.2)
