@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.5.2](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.2) (2023-04-04)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.1...v1.5.2)
+
+**Merged pull requests:**
+
+- Fix to do not install sphinx on Windows [\#21](https://github.com/nifcloud/nifcloud-cli/pull/21) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.5.1](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.1) (2023-03-13)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.0...v1.5.1)
