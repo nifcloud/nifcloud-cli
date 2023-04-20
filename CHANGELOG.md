@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.6.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.6.0) (2023-04-20)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.2...v1.6.0)
+
+**Merged pull requests:**
+
+- Add waiter for remote access vpn gateway [\#23](https://github.com/nifcloud/nifcloud-cli/pull/23) ([aokumasan](https://github.com/aokumasan))
+- Update model [\#22](https://github.com/nifcloud/nifcloud-cli/pull/22) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.5.2](https://github.com/nifcloud/nifcloud-cli/tree/v1.5.2) (2023-04-04)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.1...v1.5.2)
