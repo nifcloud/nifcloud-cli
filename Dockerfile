@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION="3.9.7"
+ARG PYTHON_VERSION="3.11.3"
 
-FROM python:${PYTHON_VERSION}-alpine3.14
+FROM python:${PYTHON_VERSION}-alpine3.18
 
 RUN apk --update add groff
 
