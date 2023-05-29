@@ -13,6 +13,6 @@ ENV PATH="/home/nifcloud/.local/bin:${PATH}"
 COPY . .
 COPY bin/nifcloud /usr/local/bin/nifcloud
 
-RUN pip install pipenv==2021.5.29 --no-cache-dir --user && pipenv install --system --deploy && pip uninstall -y pipenv
+RUN pip install pipenv==2023.5.19 --no-cache-dir --user && pipenv install --system --deploy && pip uninstall -y pipenv
 
 ENTRYPOINT ["/usr/local/bin/nifcloud"]
