@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pipenv==2023.5.19
+          pip install pipenv==2023.5.19 setuptools wheel
           pipenv install -d --skip-lock --system
 
       - name: Build exe
