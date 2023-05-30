@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION="3.9.7"
+ARG PYTHON_VERSION="3.11.3"
 
-FROM python:${PYTHON_VERSION}-alpine3.14
+FROM python:${PYTHON_VERSION}-alpine3.18
 
 RUN apk --update add groff
 
@@ -13,6 +13,6 @@ ENV PATH="/home/nifcloud/.local/bin:${PATH}"
 COPY . .
 COPY bin/nifcloud /usr/local/bin/nifcloud
 
-RUN pip install pipenv==2021.5.29 --no-cache-dir --user && pipenv install --system --deploy && pip uninstall -y pipenv
+RUN pip install pipenv==2023.5.19 --no-cache-dir --user && pipenv install --system --deploy && pip uninstall -y pipenv
 
 ENTRYPOINT ["/usr/local/bin/nifcloud"]
