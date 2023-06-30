@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.7.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.7.0) (2023-06-30)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.6.0...v1.7.0)
+
+**Merged pull requests:**
+
+- Feature/update python and pipenv version [\#25](https://github.com/nifcloud/nifcloud-cli/pull/25) ([aokumasan](https://github.com/aokumasan))
+- Update models [\#24](https://github.com/nifcloud/nifcloud-cli/pull/24) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.6.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.6.0) (2023-04-20)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.5.2...v1.6.0)
