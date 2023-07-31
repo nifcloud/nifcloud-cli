@@ -18,3 +18,5 @@ pytest-cov = "*"
 [scripts]
 isort = "isort"
 lint = "flake8"
+test = "pytest --capture=sys"
+unittest = "pytest tests/unit --capture=sys"
