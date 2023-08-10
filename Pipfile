@@ -12,7 +12,11 @@ isort = "*"
 cx-freeze = "==6.15.0"
 sphinx = {version = "==5.3.0", sys_platform = "!= 'win32'"}
 sphinx-rtd-theme = {version = "*", sys_platform = "!= 'win32'"}
+pytest = "*"
+pytest-cov = "*"
 
 [scripts]
 isort = "isort"
 lint = "flake8"
+test = "pytest --capture=sys"
+unittest = "pytest tests/unit --capture=sys"
