@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.8.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.8.0) (2023-08-10)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.7.0...v1.8.0)
+
+**Merged pull requests:**
+
+- Feature/add tests [\#28](https://github.com/nifcloud/nifcloud-cli/pull/28) ([aokumasan](https://github.com/aokumasan))
+- Bump up nifcloud-sdk-python and base awscli versions [\#27](https://github.com/nifcloud/nifcloud-cli/pull/27) ([aokumasan](https://github.com/aokumasan))
+- update model [\#26](https://github.com/nifcloud/nifcloud-cli/pull/26) ([fujita-hiroki1115](https://github.com/fujita-hiroki1115))
+
 ## [v1.7.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.7.0) (2023-06-30)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.6.0...v1.7.0)
