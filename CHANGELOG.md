@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.9.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.9.0) (2023-09-29)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.8.0...v1.9.0)
+
+**Merged pull requests:**
+
+- Update models [\#30](https://github.com/nifcloud/nifcloud-cli/pull/30) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.8.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.8.0) (2023-08-10)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.7.0...v1.8.0)
