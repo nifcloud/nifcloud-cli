@@ -27,6 +27,7 @@ jobs:
         shell: powershell
         run: |
           .venv/Scripts/Activate.ps1
+          pipenv shell
           python setup.py build
           mkdir files-to-sign
           mv build/exe.win-amd64-${{ matrix.python-version }}/nifcloud.exe files-to-sign
