@@ -24,25 +24,23 @@ jobs:
           pipenv install -d --skip-lock --system
 
       - name: Build exe
-        shell: pwsh
+        shell: powershell
         run: |
           python setup.py build
           mkdir files-to-sign
           mv build/exe.win-amd64-${{ matrix.python-version }}/nifcloud.exe files-to-sign
 
       - name: Sign nifcloud.exe
-        shell: pwsh
         run: |
           signtool sign /f "${{ secrets.CERTIFICATE_FILE }}" /csp "${{ secrets.CSP_NAME }}" /k "${{ secrets.HARDWARE_TOKEN_KEYS }}" /fd SHA256 /td SHA256 /tr "http://timestamp.digicert.com" "files-to-sign/nifcloud.exe"
 
       - name: Create MSI installer
-        shell: pwsh
+        shell: powershell
         run: |
           mv files-to-sign/nifcloud.exe build/exe.win-amd64-${{ matrix.python-version }}/
           python setup.py bdist_msi
 
       - name: Sign MSI installer
-        shell: pwsh
         run: |
           signtool sign /f "${{ secrets.CERTIFICATE_FILE }}" /csp "${{ secrets.CSP_NAME }}" /k "${{ secrets.HARDWARE_TOKEN_KEYS }}" /fd SHA256 /td SHA256 /tr "http://timestamp.digicert.com" "dist/*.msi"
 
