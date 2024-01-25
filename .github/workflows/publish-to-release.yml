@@ -26,6 +26,7 @@ jobs:
       - name: Build exe
         shell: powershell
         run: |
+          .venv/Scripts/Activate.ps1
           python setup.py build
           mkdir files-to-sign
           mv build/exe.win-amd64-${{ matrix.python-version }}/nifcloud.exe files-to-sign
@@ -37,6 +38,7 @@ jobs:
       - name: Create MSI installer
         shell: powershell
         run: |
+          .venv/Scripts/Activate.ps1
           mv files-to-sign/nifcloud.exe build/exe.win-amd64-${{ matrix.python-version }}/
           python setup.py bdist_msi
 
