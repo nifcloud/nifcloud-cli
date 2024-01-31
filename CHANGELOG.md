@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.10.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.10.0) (2024-01-31)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.9.0...v1.10.0)
+
+**Closed issues:**
+
+- create-imageコマンドについて（About the create-image command） [\#29](https://github.com/nifcloud/nifcloud-cli/issues/29)
+
+**Merged pull requests:**
+
+- Update models [\#32](https://github.com/nifcloud/nifcloud-cli/pull/32) ([aokumasan](https://github.com/aokumasan))
+- Add config file for read the docs [\#31](https://github.com/nifcloud/nifcloud-cli/pull/31) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.9.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.9.0) (2023-09-29)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.8.0...v1.9.0)
