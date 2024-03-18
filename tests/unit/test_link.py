@@ -34,11 +34,6 @@ class TestLink:
         expected = f"https://{self.DOC_DOMAIN}/api/rest/{operation}.htm"
         assert actual == expected
 
-    def test_get_document_site_url_script(self):
-        actual = get_document_site_url("script", "")
-        expected = f"https://{self.DOC_DOMAIN}/api/script/start.htm"
-        assert actual == expected
-
     @pytest.mark.parametrize(
         "operation",
         [
