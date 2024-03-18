@@ -10,7 +10,6 @@ class TestCLI:
             "nas",
             "dns",
             "ess",
-            "script",
             "storage",
             "service-activity",
         ]
