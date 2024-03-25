@@ -14,6 +14,7 @@ class TestLink:
             ("ess", "ListIdentities"),
             ("dns", "ListHostedZones"),
             ("service-activity", "DescribeServiceStatuses"),
+            ("devops", "ListInstances"),
         ],
     )
     def test_get_document_site_url(self, service_id, operation):
@@ -47,4 +48,17 @@ class TestLink:
         expected = (
             f"https://{self.DOC_DOMAIN}/api/object-storage-service/{operation}.htm"
         )
+        assert actual == expected
+
+    @pytest.mark.parametrize(
+        "operation",
+        [
+            "ListRunners",
+            "CreateRunner",
+            "DeleteRunner",
+        ],
+    )
+    def test_get_document_site_url_devops_runner(self, operation):
+        actual = get_document_site_url("devops-runner", operation)
+        expected = f"https://{self.DOC_DOMAIN}/api/devops/{operation}.htm"
         assert actual == expected
