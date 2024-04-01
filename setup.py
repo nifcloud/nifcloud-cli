@@ -51,7 +51,7 @@ setup(
     description='NIFCLOUD Command-Line Tools',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    author='FUJITSU',
+    author='Fujitsu',
     url='https://github.com/nifcloud/nifcloud-cli',
     packages=find_packages(exclude=['tests*']),
     package_data={'nifcloudcli': ['data/*.json', 'topics/*.json']},
