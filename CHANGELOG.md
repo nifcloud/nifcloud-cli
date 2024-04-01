@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.11.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.11.0) (2024-04-01)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.10.0...v1.11.0)
+
+**Merged pull requests:**
+
+- Update copyright [\#38](https://github.com/nifcloud/nifcloud-cli/pull/38) ([tily](https://github.com/tily))
+- Remove db.mini from rdb service [\#37](https://github.com/nifcloud/nifcloud-cli/pull/37) ([SogoKato](https://github.com/SogoKato))
+- Remove hatoba and script [\#35](https://github.com/nifcloud/nifcloud-cli/pull/35) ([SogoKato](https://github.com/SogoKato))
+- Feature/close hatoba and script [\#33](https://github.com/nifcloud/nifcloud-cli/pull/33) ([SogoKato](https://github.com/SogoKato))
+
 ## [v1.10.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.10.0) (2024-01-31)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.9.0...v1.10.0)
