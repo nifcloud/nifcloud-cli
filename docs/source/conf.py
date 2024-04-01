@@ -14,8 +14,8 @@ import bootstrapdocs  # noqa
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'nifcloud-cli'
-copyright = '2023, FUJITSU CLOUD TECHNOLOGIES LIMITED'
-author = 'FUJITSU CLOUD TECHNOLOGIES LIMITED'
+copyright = 'FUJITSU'
+author = 'FUJITSU'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
