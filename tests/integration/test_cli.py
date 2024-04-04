@@ -12,6 +12,8 @@ class TestCLI:
             "ess",
             "storage",
             "service-activity",
+            "devops",
+            "devops-runner",
         ]
         for service in available_services:
             assert service in res
