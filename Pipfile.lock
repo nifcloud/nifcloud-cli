@@ -56,10 +56,10 @@
         },
         "nifcloud": {
             "hashes": [
-                "sha256:d5a90f7ad850c74ffd488887675af921c2f7c9d951ebb6c6a201b6436b96c8a9",
-                "sha256:f43407b31bf98308c36e617900dcf51ae00d168f908e256c324458cafb8f316e"
+                "sha256:4d5429653299f11d01cfad82deba72b006805ab155afffe635b4cbd72f9626e4",
+                "sha256:79b5decf7852956512a87499005dd80704cf706b6ad92b16313550fb007294e1"
             ],
-            "version": "==1.11.0"
+            "version": "==1.12.0"
         },
         "nifcloud-cli": {
             "editable": true,
