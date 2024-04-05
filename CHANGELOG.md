@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.12.0) (2024-04-05)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.11.0...v1.12.0)
+
+**Merged pull requests:**
+
+- Add devops and devops-runner APIs [\#36](https://github.com/nifcloud/nifcloud-cli/pull/36) ([SogoKato](https://github.com/SogoKato))
+
 ## [v1.11.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.11.0) (2024-04-01)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.10.0...v1.11.0)
