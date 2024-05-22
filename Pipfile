@@ -9,7 +9,7 @@ nifcloud-cli = {editable = true, path = "."}
 [dev-packages]
 isort = "*"
 "flake8" = "*"
-cx-freeze = "==6.15.0"
+cx-freeze = "==6.15.16"
 sphinx = {version = "==5.3.0", sys_platform = "!= 'win32'"}
 sphinx-rtd-theme = {version = "*", sys_platform = "!= 'win32'"}
 pytest = "*"
