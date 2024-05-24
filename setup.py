@@ -8,18 +8,18 @@ if os.name == "nt" and ("build" in sys.argv or "bdist_msi" in sys.argv):
     from cx_Freeze import Executable, setup
     from setuptools import find_packages
 
-    if 'bdist_msi' in sys.argv:
-        sys.argv += ['--add-to-path', 'True', '--skip-build']
-
     build_exe_options = {
         "includes": ["awscli", "html.parser"],
         "packages": ["docutils"],
         "excludes": ["awscli.examples", "botocore.data"],
     }
-    cx_freeze_opts = {
+    build_msi_options = {
         "add_to_path": True,
         "skip_build": True,
-        "options": {"build_exe": build_exe_options},
+        "upgrade_code": "{799865ae-6f18-4e1a-a396-2ee83b6b46a8}",
+    }
+    cx_freeze_opts = {
+        "options": {"build_exe": build_exe_options, "bdist_msi": build_msi_options},
         "executables": [Executable("bin/nifcloud", icon="assets/icon.ico")],
     }
 else:
