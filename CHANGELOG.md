@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.13.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.13.0) (2024-05-31)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.12.0...v1.13.0)
+
+**Merged pull requests:**
+
+- Fix cxfreeze options [\#40](https://github.com/nifcloud/nifcloud-cli/pull/40) ([aokumasan](https://github.com/aokumasan))
+- fix typo [\#39](https://github.com/nifcloud/nifcloud-cli/pull/39) ([fuku2014](https://github.com/fuku2014))
+
 ## [v1.12.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.12.0) (2024-04-05)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.11.0...v1.12.0)
