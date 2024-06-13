@@ -32,7 +32,7 @@ class TestLink:
     )
     def test_get_document_site_url_computing(self, operation):
         actual = get_document_site_url("computing", operation)
-        expected = f"https://{self.DOC_DOMAIN}/api/rest/{operation}.htm"
+        expected = f"https://{self.DOC_DOMAIN}/api/cp/{operation}.htm"
         assert actual == expected
 
     @pytest.mark.parametrize(

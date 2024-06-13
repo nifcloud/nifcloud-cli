@@ -3,7 +3,7 @@ NIFCLOUD_DOC_BASE = 'https://pfs.nifcloud.com/api'
 
 def get_document_site_url(service_id, operation_name):
     if service_id == "computing":
-        link = '%s/rest/%s.htm' % (NIFCLOUD_DOC_BASE, operation_name)
+        link = '%s/cp/%s.htm' % (NIFCLOUD_DOC_BASE, operation_name)
     elif service_id == "storage":
         link = '%s/object-storage-service/%s.htm' % (NIFCLOUD_DOC_BASE,
                                                      operation_name)
