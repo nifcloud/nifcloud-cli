@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.14.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.14.0) (2024-07-11)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.13.0...v1.14.0)
+
+**Merged pull requests:**
+
+- update models [\#42](https://github.com/nifcloud/nifcloud-cli/pull/42) ([fuku2014](https://github.com/fuku2014))
+- Fix computing document link [\#41](https://github.com/nifcloud/nifcloud-cli/pull/41) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.13.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.13.0) (2024-05-31)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.12.0...v1.13.0)
