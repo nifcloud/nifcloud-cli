@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.15.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.15.0) (2024-09-02)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.14.0...v1.15.0)
+
+**Merged pull requests:**
+
+- Update devops-runner model [\#44](https://github.com/nifcloud/nifcloud-cli/pull/44) ([SogoKato](https://github.com/SogoKato))
+- Add MultiIpAddressGroup waiter [\#43](https://github.com/nifcloud/nifcloud-cli/pull/43) ([aokumasan](https://github.com/aokumasan))
+
 ## [v1.14.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.14.0) (2024-07-11)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.13.0...v1.14.0)
