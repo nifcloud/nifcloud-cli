@@ -17,13 +17,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
       - name: Install dependencies
-        run: |
-          pip install pipenv==2023.5.19 setuptools wheel
-          pipenv install -d --skip-lock --system
+        run: uv sync
 
       - name: Build msi
         shell: pwsh
         run: |
-          python setup.py build
-          python setup.py bdist_msi
+          uv run python setup.py build
+          uv run python setup.py bdist_msi
