@@ -46,31 +46,11 @@ def find_version(*file_paths):
 
 
 setup(
-    name='nifcloud-cli',
     version=find_version('nifcloudcli', '__init__.py'),
-    description='NIFCLOUD Command-Line Tools',
-    long_description=read('README.md'),
-    long_description_content_type='text/markdown',
-    author='Fujitsu',
     url='https://github.com/nifcloud/nifcloud-cli',
     packages=find_packages(exclude=['tests*']),
     package_data={'nifcloudcli': ['data/*.json', 'topics/*.json']},
     include_package_data=True,
-    install_requires=['nifcloud==1.15.0', 'awscli==1.29.1', 'pyyaml==5.3.1'],
-    license='Apache License 2.0',
-    classifiers=(
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'Intended Audience :: System Administrators',
-        'Natural Language :: English',
-        'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
-    ),
     scripts=['bin/nifcloud'],
     **cx_freeze_opts,
 )
