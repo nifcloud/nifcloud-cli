@@ -1,0 +1,29 @@
+name: Test build msi
+
+on: [push, pull_request]
+
+jobs:
+  test_build_msi:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        python-version: [3.11]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install pipenv==2023.5.19 setuptools wheel
+          pipenv install -d --skip-lock --system
+
+      - name: Build msi
+        shell: pwsh
+        run: |
+          python setup.py build
+          python setup.py bdist_msi
