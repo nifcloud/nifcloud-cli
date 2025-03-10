@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "nifcloud-cli"
+authors = [{name = "Fujitsu"}]
+urls = {Homepage = "https://github.com/nifcloud/nifcloud-cli"}
+dynamic = ["version"]
+description = "NIFCLOUD Command-Line Tools"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Natural Language :: English",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+license = {text = "Apache-2.0"}
+dependencies = [
+    "awscli==1.29.1",
+    "nifcloud==1.15.0",
+    "pyyaml==5.3.1",
+]
+requires-python = ">=3.7.4"
+
+[dependency-groups]
+dev = [
+    "isort",
+    "flake8",
+    "cx-freeze==6.15.16",
+    "sphinx==5.1.1 ; sys_platform != 'win32'",
+    "sphinx-rtd-theme ; sys_platform != 'win32'",
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.uv]
+package = true
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[tool.uv.sources]
+nifcloud-cli = { path = ".", editable = true }
