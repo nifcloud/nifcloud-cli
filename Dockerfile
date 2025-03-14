@@ -1,11 +1,11 @@
 ARG PYTHON_VERSION_MAJOR="3"
-ARG PYTHON_VERSION_MINOR="11"
-ARG PYTHON_VERSION_PATCH="3"
+ARG PYTHON_VERSION_MINOR="13"
+ARG PYTHON_VERSION_PATCH="2"
 ARG PYTHON_VERSION="${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}.${PYTHON_VERSION_PATCH}"
 
 ARG UV_VERSION="0.5.24"
 
-FROM python:${PYTHON_VERSION}-alpine3.18 AS builder
+FROM python:${PYTHON_VERSION}-alpine3.21 AS builder
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /home/nifcloud
@@ -15,7 +15,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
 
-FROM python:${PYTHON_VERSION}-alpine3.18
+FROM python:${PYTHON_VERSION}-alpine3.21
 ARG PYTHON_VERSION_MAJOR
 ARG PYTHON_VERSION_MINOR
 COPY --from=builder \

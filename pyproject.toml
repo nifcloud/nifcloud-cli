@@ -15,19 +15,20 @@ classifiers = [
     "Natural Language :: English",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 license = {text = "Apache-2.0"}
 dependencies = [
-    "awscli==1.29.1",
-    "nifcloud==1.15.0",
+    "awscli==1.38.10",
+    "nifcloud==1.16.0",
     "pyyaml==5.3.1",
 ]
-requires-python = ">=3.7.4"
+requires-python = ">=3.8"
 
 [dependency-groups]
 dev = [

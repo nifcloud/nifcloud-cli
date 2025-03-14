@@ -8,12 +8,11 @@ env:
   NIFCLOUD_STORAGE_SECRET_ACCESS_KEY: ${{ secrets.NIFCLOUD_STORAGE_SECRET_ACCESS_KEY }}
 jobs:
   test:
-    # ubuntu-24.04 later does not support Python 3.7
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       max-parallel: 1
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.11', '3.13']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
