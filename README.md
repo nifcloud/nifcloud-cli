@@ -7,7 +7,7 @@ Universal Command Line Interface for NIFCLOUD Services
 
 ## Requirements
 
-* Python 3.7 or later
+* Python 3.8 or later
 
 ## How to Install
 
