@@ -34,7 +34,7 @@ requires-python = ">=3.8"
 dev = [
     "isort",
     "flake8",
-    "cx-freeze==6.15.16",
+    "cx-freeze==7.2.10",
     "sphinx==5.1.1 ; sys_platform != 'win32'",
     "sphinx-rtd-theme ; sys_platform != 'win32'",
     "pytest",
