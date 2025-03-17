@@ -1,5 +1,20 @@
 # Changelog
 
+## [v1.16.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.16.0) (2025-03-17)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.15.0...v1.16.0)
+
+**Closed issues:**
+
+- storageコマンドが実行できない。 [\#45](https://github.com/nifcloud/nifcloud-cli/issues/45)
+
+**Merged pull requests:**
+
+- remove python3.7 and update libs [\#51](https://github.com/nifcloud/nifcloud-cli/pull/51) ([fuku2014](https://github.com/fuku2014))
+- Migrate pipenv to uv [\#48](https://github.com/nifcloud/nifcloud-cli/pull/48) ([heriet](https://github.com/heriet))
+- Fix workflow publish-to-release to test-build-msi [\#47](https://github.com/nifcloud/nifcloud-cli/pull/47) ([heriet](https://github.com/heriet))
+- Fix image ubuntu-22.04 on test workflow for test python 3.7 [\#46](https://github.com/nifcloud/nifcloud-cli/pull/46) ([heriet](https://github.com/heriet))
+
 ## [v1.15.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.15.0) (2024-09-02)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.14.0...v1.15.0)
