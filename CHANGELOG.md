@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.17.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.17.0) (2025-05-30)
+
+[Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.16.0...v1.17.0)
+
+**Merged pull requests:**
+
+- update model json [\#50](https://github.com/nifcloud/nifcloud-cli/pull/50) ([fuku2014](https://github.com/fuku2014))
+
 ## [v1.16.0](https://github.com/nifcloud/nifcloud-cli/tree/v1.16.0) (2025-03-17)
 
 [Full Changelog](https://github.com/nifcloud/nifcloud-cli/compare/v1.15.0...v1.16.0)
