@@ -25,7 +25,7 @@ classifiers = [
 license = {text = "Apache-2.0"}
 dependencies = [
     "awscli==1.38.10",
-    "nifcloud==1.16.0",
+    "nifcloud==1.17.0",
     "pyyaml==5.3.1",
 ]
 requires-python = ">=3.8"
